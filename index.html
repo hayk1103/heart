@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Beauty heart</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                overflow: hidden;
+                background: #000;
+            }
+
+            p {
+                position: absolute;
+                bottom: 0;
+                font-family: 'Montserrat', sans-serif;
+                right: 20px;
+                color: #1e272e;
+            }
+
+            span {
+                position: absolute;
+                pointer-events: none;
+                background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1024px-Heart_coraz%C3%B3n.svg.png');
+                background-size: cover;
+                transform: translate(-50%, -50%);
+                animation: beauty 2s linear infinite;
+            }
+
+            @keyframes beauty {
+                from {
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                    filter: hue-rotate(0deg);
+                }
+                
+                to {
+                    transform: translate(-50%, -1000%);
+                    opacity: 0;
+                    filter: hue-rotate(720deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <p>by Hayk</p>
+        <script>
+            const body = document.body
+
+            //for phones and tablets
+            body.addEventListener('touchmove', e => {
+                const heart = document.createElement('span')
+                const size = Math.floor(Math.random() * 100)
+                heart.setAttribute('style', `top: ${e.touches[0].clientY}px; left: ${e.touches[0].clientX}px; height: ${size}px; width: ${size}px`)
+                body.append(heart)
+                setTimeout(() => {
+                    heart.remove()
+                }, 2000)
+            })
+
+            body.addEventListener('mousemove', e => {
+                const heart = document.createElement('span')
+                const size = Math.floor(Math.random() * 100)
+                heart.setAttribute('style', `top: ${e.clientY}px; left: ${e.clientX}px; height: ${size}px; width: ${size}px`)
+                heart.className = 'heart'
+                body.append(heart)
+                setTimeout(() => {
+                    heart.remove()
+                }, 2000)
+            })
+        </script>
+    </body>
+</html>
