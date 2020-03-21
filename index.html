@@ -27,7 +27,7 @@
                 background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1024px-Heart_coraz%C3%B3n.svg.png');
                 background-size: cover;
                 transform: translate(-50%, -50%);
-                animation: beauty 2s linear infinite;
+                animation: beauty 2.1s linear infinite;
             }
 
             @keyframes beauty {
@@ -54,7 +54,7 @@
             body.addEventListener('touchmove', e => {
                 const heart = document.createElement('span')
                 const size = Math.floor(Math.random() * 100)
-                heart.setAttribute('style', `top: ${e.touches[0].clientY}px; left: ${e.touches[0].clientX}px; height: ${size}px; width: ${size}px`)
+                heart.setAttribute('style', `top: ${e.touches[0].clientY}px; left: ${e.touches[0].clientX}px; height: ${size}px; width: ${size}px; z-index: ${size / 100}`)
                 body.append(heart)
                 setTimeout(() => {
                     heart.remove()
@@ -64,7 +64,7 @@
             body.addEventListener('mousemove', e => {
                 const heart = document.createElement('span')
                 const size = Math.floor(Math.random() * 100)
-                heart.setAttribute('style', `top: ${e.clientY}px; left: ${e.clientX}px; height: ${size}px; width: ${size}px`)
+                heart.setAttribute('style', `top: ${e.clientY}px; left: ${e.clientX}px; height: ${size}px; width: ${size}px; z-index: ${size / 100}`)
                 heart.className = 'heart'
                 body.append(heart)
                 setTimeout(() => {
