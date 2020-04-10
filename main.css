@@ -1,0 +1,39 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+p {
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    right: 20px;
+    color: #1e272e;
+}
+
+span {
+    position: absolute;
+    pointer-events: none;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1024px-Heart_coraz%C3%B3n.svg.png');
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    animation: beauty 2.1s linear infinite;
+}
+
+@keyframes beauty {
+    from {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        filter: hue-rotate(0deg);
+    }
+    
+    to {
+        transform: translate(-50%, -1000%);
+        opacity: 0;
+        filter: hue-rotate(720deg);
+    }
+}
